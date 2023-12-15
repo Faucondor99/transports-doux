@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr" class="full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="CSS/styleFinal.css">
+</head>
+<body class="full">
+    <div class="pageAccueil">
+        <header class="index2">
+            <img id="logo" src="SOURCE/logoLyon1.png" alt="logo-univ-lyon-1">
+            <div>
+                <h1>Les transports doux sur le site de la Doua</h1>
+            </div>
+        </header>
+        <div id="backBanderoleAnimee" class="index0">
+            <div class="overlay">
+                <img id="frontBanderoleAnimee" src="SOURCE/BanderoleAnimee/tramBanderole.png" class="index2" alt="tram-rouge">
+            </div>
+        </div>
+        <nav class="index2">
+            <a href="index.html">Accueil</a>
+            <a href="transports.html">Transports</a>
+            <a href="https://www.tcl.fr/se-deplacer/plan-interactif" target="_blank">Carte</a>
+        </nav>
+        <div id="contentC">
+            <div class="content">
+                <div id="cadre1" class="cadre flexSimple">
+                    <img src="SOURCE/trafic-routier.png" alt="trafic-routier">
+                        <h3>
+                            Les déplacements sont une part importante de l’empreinte carbonique des français (31% selon L’ADEME).
+                            La plus grande partie des étudiants vit à plus de 3km de l’université,
+                            et utilise donc des moyens de transports afin de se rendre sur place.
+                             Nous vous présentons ainsi les alternatives envisageables pour réduire
+                            votre empreinte carbonne : <b> les transports doux.</b>
+                        </h3>
+                    <div id="diagramme">
+                        <img src="SOURCE/diagramme.png" alt="diagramme">
+                    </div>
+                </div>
+                <div id="citation">
+                    <h2>“Les transports doux sont des modes de transports qui ne 
+                        <br>génèrent pas ou peu de pollution et de gaz à effet de serre.”</h2>
+                </div>
+                <div id="cadre2" class="cadre flexReverse">
+                    <img src="SOURCE/t1.jpg" alt="t1-direction-debourg">
+                    <h4>
+                        Nous vous présentons les transports ayant le moins d’impact sur l’environnement 
+                        afin de vous rendre ou de vous déplacer sur le campus de la Doua.
+                        Vous pouvez vous déplacez pour : manger (Resto U CROUS, restaurant..), 
+                        travailler (BU La doua) ou meme pour rentrer chez soit pour ceux 
+                        qui logent aux CROUS ou à proximité.
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="formulaireMessage">
+                <p>Nous contacter :</p>
+                <form action="https://perso.liris.cnrs.fr/pierre-antoine.champin/enseignement/intro-web/_static/formproc/debug" method="post">
+                    <div id="informations">
+                        <label for="email">Email :</label>
+                        <input id="email" type="text">
+
+                        <label for="objet">Objet :</label>
+                        <input id="objet" type="text">
+
+                        <label for="statut">Statut :</label>
+                        <select id="statut">
+                            <option value="professionnel">Professionnel</option>
+                            <option value="particulier">Particulier</option>
+                        </select>
+                    </div>
+                    <textarea class="message" placeholder="Entrez votre message ici"></textarea>
+                    <button class="submit">Envoyer</button>
+                </form>
+            </div>
+            
+        </footer>
+        
+    </div>
+</body>
+</html>

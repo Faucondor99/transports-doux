@@ -1,0 +1,550 @@
+/* ##-- VARIABLES --## */
+
+:root {
+    --main-color: #ff7357;
+    --border-height: 2px;
+    --border-color: #000000;
+    --bg-header: #eeeeee;
+    --header-height: 50px;
+    --top-sticky-nav: 51px;
+    --nav-height: 50px;
+    --nav-link-color: white;
+    --footer-color: gray;
+
+    --banderoleAnimee-height-ordi: 700px;
+    --banderoleAnimee-height-tel: 200px;
+
+    --margin-content: 20px;
+
+    --border-height-cadre: 2px;
+    --border-color-cadre: lightgray;
+    --border-radius: 10px;
+    --cadre-height-ordi: 400px;
+    --cadre-height-tel: 800px;
+    --cadre-margin: 0px;
+    --img-cadre-width: 400px;
+
+    --cadre-min-width: 1150px;
+
+    --bg-citation: #a5a3a3;
+
+    --banderoleT--height: 200px;
+
+    --footer-height: 400px;
+}
+
+/* ##-- ANIMATIONS --## */
+
+@keyframes slideFromLeft {
+    0%{
+        transform: translateX(-120%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+/* animation de la banderole sur ecran d'accueil */
+
+#backBanderoleAnimee {
+    position: relative;
+    z-index: 0;
+
+    width: 100%;
+
+    background-image: url("../SOURCE/BanderoleAnimee/fondBanderole.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#frontBanderoleAnimee {
+    position: absolute;
+
+    height: auto;
+
+    animation: 2s slideFromLeft;
+}
+
+/* animation du menu latéral */
+
+
+
+
+#menuLateral > a {
+    background-color: rgb(211, 211, 211);
+    color: rgb(89, 89, 89);
+
+    border-left: solid 5px #ff7357;
+    border-top-right-radius: 10px;
+
+    font-size: 110%;
+    text-decoration: none;
+
+    padding-top: 10px;
+    padding-left: 5px;
+
+    margin: 0px 10px 10px 0px;
+    height: 30px;
+    width: auto;
+}
+
+#menuLateral > a:hover {
+    color: white;
+}
+
+
+
+/* animations des overlays quand survol image */
+
+.dynamicImg {
+    position: relative;
+}
+
+.cadre .overlay { /* préciser chemin sinon image accueil devient opacity 0 */
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+}
+
+.dynamicImg:hover .overlay {
+    opacity: 1;
+}
+
+
+/* ##-- DESIGN ELEMENTS --## */
+
+/* design fixe */
+.index0 { z-index: 0; }
+.index1 { z-index: 1; }
+.index2 { z-index: 2; }
+
+.full {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px; left: 0px;
+}
+
+.flexSimple { flex-direction: row; }
+.flexReverse { flex-direction: row-reverse; }
+
+html {
+    scroll-behavior: smooth; /* glissé smooth quand focus sur elm */
+    scroll-padding-top: 110px; /* sinon passe sous la barre de menu */
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Roboto","Open Sans",sans-serif;
+}
+
+header {
+    display: grid;
+    grid-template-columns: var(--header-height) 1fr;
+    background-color: var(--bg-header);
+    border-bottom: solid var(--border-height) var(--border-color);
+
+    height: var(--header-height);
+
+    position: sticky;
+    top: 0px;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--header-height);
+}
+
+h1 {
+    font-size: 150%;
+    margin: 0px;
+}
+
+#logo {
+    width: var(--header-height);
+    height: var(--header-height);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: sticky;
+    top: var(--top-sticky-nav);
+
+    background-color: var(--main-color);
+    border-bottom: solid var(--border-height) var(--border-color);
+
+    width: 100%;
+    height: var(--nav-height);
+}
+
+nav > a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-size: 150%;
+}
+
+nav > a::after {
+    content: "";
+
+    background-color: var(--nav-link-color);
+
+    width: 100%;
+    height: 1.5px;
+    border-radius: 3px;
+    display: block;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+footer {
+    background-color: var(--footer-color);
+    border-top: solid var(--border-height) var(--border-color);
+    height: var(--footer-height);
+}
+
+
+
+textarea {
+    resize: none;
+}
+
+.submit {
+    color: white;
+    background-color: black;
+
+    border-radius: 30px;
+
+    width: 100px;
+    height: 30px;
+}
+
+p {
+    margin: 3px;
+}
+
+footer > #formulaireMessage {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    height: 90%;
+    padding: 10px;
+    color: white;
+}
+
+
+
+footer > #formulaireMessage > form > #informations {
+    display: grid;
+    grid-template: repeat(3 , 25px) / 20% 1fr;
+    row-gap: 10px;
+}
+
+
+/* styles particuliers */
+
+
+.pageTransports {
+    display: grid;
+    grid-template-rows: 50px var(--banderoleT-height) 50px 1fr span;
+}
+
+
+
+#contentC {
+    margin: 20px 0px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cadre {
+    background-image: url("../SOURCE/fondGris.jpg");
+
+    border: solid var(--border-height-cadre) var(--border-color-cadre);
+    border-radius: var(--border-radius);
+
+    width: 95%;
+
+    margin: var(--cadre-margin);
+    padding: var(--cadre-padding);
+
+    display: flex; /*flex automatique*/
+    gap: 20px;
+}
+
+
+#citation {
+    font-style: italic ;
+    width: 100%;
+    height: 150px;
+
+    text-align: center;
+    background: var(--bg-citation);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-weight: lighter;
+}
+
+#banderole {
+    width: 100%;
+    height: var(--banderoleT-height);
+}
+
+/* tableaux */
+table, th, td{
+    border: solid rgb(181, 181, 181) 1px;
+    font-family: TTRoundsCondensed,Open Sans,sans-serif;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th {
+    width: 100px;
+}
+
+td{
+    text-align: center;
+    height: 40px;
+    width: 150px;
+}
+
+tbody > tr:nth-of-type(odd) {
+    background-color: rgb(227, 223, 223);
+}
+
+thead{
+    font-size: large;
+    background-color: rgb(201, 48, 48);
+    color: rgb(255, 255, 255);
+}
+
+@media(width>600px) {
+
+    #menuLateral {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background-color: #f5f5f5;
+        padding: 10px 0px 10px 10px;
+        /*margin-top: var(--margin-content);*/
+
+        position: sticky;
+        left:0px; top: 210px;
+
+        border-right: solid 3px #ff7357;
+        border-top: solid 3px #ff7357;
+        border-bottom: solid 3px #ff7357;
+
+
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        transition: width 300ms;
+
+        height:300px;
+        width: 0px;
+
+        overflow: hidden;
+    }
+
+
+    #menuLateral:hover {
+        width: 200px;
+
+    }
+
+    .pageAccueil {
+        grid-template-rows: var(--header-height) var(--banderoleAnimee-height-ordi) var(--nav-height) 1fr span;
+    }
+
+    #backBanderoleAnimee {
+        height: var(--banderoleAnimee-height-ordi);
+    }
+
+    #frontBanderoleAnimee {
+        top: 14px;
+        left: 140px;
+        width: 1400px;
+    }
+
+    #contentMC {
+        display: grid;
+        grid-template-columns: 10px 1fr;
+        margin: 20px 0px;
+    }
+
+    .cadre {
+        min-width: var(--cadre-min-width); /* si fenetre trop petite, taille des cadres est fixée */
+
+        height: var(--cadre-height-ordi);
+        padding: 20px;
+    }
+    .cadre img {
+        width: var(--img-cadre-width);
+        height: var(--img-cadre-width);
+        border-radius: var(--border-radius);
+    }
+
+    #diagramme > img {
+        width: 500px;
+        height: auto;
+    }
+
+    footer > #formulaireMessage > form {
+        display: grid;
+        grid-template-columns: 500px 1fr 10%;
+        gap: 10px;
+    }
+}
+
+
+
+
+@media(width<=600px) {
+
+    h1 {
+        font-size: 4vw;
+    }
+
+    .menuLateralContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        position: sticky;
+        top: 100px;
+    }
+
+    #menuLateral {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        background-color: #f5f5f5;
+        padding: 22px 7px 0px 7px;
+
+        border-right: solid 3px #ff7357;
+        border-left: solid 3px #ff7357;
+        border-bottom: solid 3px #ff7357;
+
+
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        transition: height 300ms;
+
+        height:0px;
+        width: 90vw;
+
+        overflow: hidden;
+    }
+
+    #menuLateral > a {
+        width: 90%;
+        flex-shrink: 0;
+    }
+
+    #menuLateral:hover {
+        height: 250px;
+    }
+
+    .pageAccueil {
+        grid-template-rows: var(--header-height) var(--banderoleAnimee-height-tel) var(--nav-height) 1fr span;
+    }
+
+    #backBanderoleAnimee {
+        height: var(--banderoleAnimee-height-tel);
+    }
+
+    nav {
+        position: sticky;
+        top: var(--top-sticky-nav);
+
+        width: 100%;
+    }
+
+    #frontBanderoleAnimee {
+        top: 32px;
+        left: 10vw;
+        width: 300px;
+    }
+
+    #contentMC {
+        display: grid;
+        grid-template-rows: 30px 1fr;
+    }
+
+    #contentMC .content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .flexContainer {
+        padding-left: 2vw;
+        width: 98vw;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        margin-bottom: 10px;
+    }
+
+    .cadre {
+        height: var(--cadre-height-tel);
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        width: 90vw;
+    }
+
+    #contentMC .flexContainer .content .cadre {
+        flex-shrink: 0;
+    }
+
+    .cadre img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    #contentMC .cadre img {
+        height: 100%;
+    }
+
+    #diagramme > img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer > #formulaireMessage > form {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    footer > #formulaireMessage > form > #informations {
+        width: 90vw;
+    }
+
+    textarea {
+        width: 90%;
+    }
+}
